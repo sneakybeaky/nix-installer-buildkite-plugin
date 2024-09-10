@@ -1,0 +1,10 @@
+name: nix installer
+description: Installs nix
+author: https://github.com/sneakybeaky
+requirements:
+  - curl
+configuration:
+  properties:
+    pattern:
+      type: string
+  additionalProperties: false

@@ -1,0 +1,13 @@
+steps:
+  - label: ":sparkles: Lint"
+    plugins:
+      - plugin-linter#v3.0.0:
+          id: nienbo/cache
+  - label: ":shell: Shellcheck"
+    plugins:
+      - shellcheck#v1.1.2:
+          files: hooks/**
+  - label: ":hammer: Test"
+    plugins:
+      - docker-compose#v3.7.0:
+          run: tests

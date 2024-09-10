@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux \
+  --extra-conf "sandbox = false" \
+  --init none \
+  --no-confirm
+
+export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
+
+VERSION=$(/nix/var/nix/profiles/default/bin/nix --version)
+
+buildkite-agent annotate "Installed nix version ${VERSION}"
